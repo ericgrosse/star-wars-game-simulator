@@ -15,15 +15,15 @@ function App() {
 
     const loadAssets = async () => {
       const background = new Image();
-      background.src = '/assets/background.svg';
+      background.src = '/svg/background.svg';
       await background.decode();
 
       const lightsaberHandle = new Image();
-      lightsaberHandle.src = '/assets/lightsaber-handle.svg';
+      lightsaberHandle.src = '/svg/lightsaber-handle.svg';
       await lightsaberHandle.decode();
 
       const lightsaberBlade = new Image();
-      lightsaberBlade.src = '/assets/lightsaber-blade.svg';
+      lightsaberBlade.src = '/svg/lightsaber-blade.svg';
       await lightsaberBlade.decode();
 
       return { background, lightsaberHandle, lightsaberBlade };
