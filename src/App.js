@@ -14,9 +14,9 @@ function App() {
     let animationFrameId;
 
     const loadAssets = async () => {
-      const background = new Image();
+      /*const background = new Image();
       background.src = '/svg/background.svg';
-      await background.decode();
+      await background.decode();*/
 
       const lightsaberHandle = new Image();
       lightsaberHandle.src = '/svg/lightsaber-handle.svg';
@@ -26,14 +26,14 @@ function App() {
       lightsaberBlade.src = '/svg/lightsaber-blade.svg';
       await lightsaberBlade.decode();
 
-      return { background, lightsaberHandle, lightsaberBlade };
+      return { /*background,*/ lightsaberHandle, lightsaberBlade };
     };
 
     const gameLoop = (assets) => {
       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       
       // Draw background
-      ctx.drawImage(assets.background, 0, 0, ctx.canvas.width, ctx.canvas.height);
+      //ctx.drawImage(assets.background, 0, 0, ctx.canvas.width, ctx.canvas.height);
 
       // Draw lightsabers
       drawLightsaber(ctx, assets, player1Position, 'blue', true);
