@@ -40,13 +40,13 @@ function App() {
       drawLightsaber(ctx, assets, aiPosition, 'red', false);
 
       // Move AI
-      moveAI();
+      //moveAI();
 
       // Check for collisions
-      checkCollisions();
+      //checkCollisions();
 
       // Draw scores
-      drawScores(ctx);
+      //drawScores(ctx);
 
       animationFrameId = requestAnimationFrame(() => gameLoop(assets));
     };
@@ -56,22 +56,27 @@ function App() {
       ctx.save();
       ctx.translate(x, position);
       if (!isPlayer) ctx.scale(-1, 1);
+      
+      // Draw handle
       ctx.drawImage(assets.lightsaberHandle, -10, -50, 20, 100);
+      
+      // Draw blade
       ctx.fillStyle = color;
-      ctx.drawImage(assets.lightsaberBlade, 0, -200, 10, 200);
+      ctx.drawImage(assets.lightsaberBlade, 0, -200, 10, 200); // Changed 'z' to 0
+      
       ctx.restore();
     };
 
-    const moveAI = () => {
+    /*const moveAI = () => {
       const aiSpeed = 2;
       setAiPosition(prev => {
         if (prev < player1Position) return prev + aiSpeed;
         if (prev > player1Position) return prev - aiSpeed;
         return prev;
       });
-    };
+    };*/
 
-    const checkCollisions = () => {
+    /*const checkCollisions = () => {
       if (Math.abs(player1Position - aiPosition) < 20) {
         if (player1Position < aiPosition) {
           setPlayer1Score(prev => prev + 1);
@@ -79,14 +84,14 @@ function App() {
           setAiScore(prev => prev + 1);
         }
       }
-    };
+    };*/
 
-    const drawScores = (ctx) => {
+    /*const drawScores = (ctx) => {
       ctx.font = '24px Arial';
       ctx.fillStyle = 'white';
       ctx.fillText(`Player: ${player1Score}`, 20, 30);
       ctx.fillText(`AI: ${aiScore}`, ctx.canvas.width - 100, 30);
-    };
+    };*/
 
     loadAssets().then(assets => {
       gameLoop(assets);
